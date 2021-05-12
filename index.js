@@ -12,11 +12,15 @@ app.use("/data", dataRoutes);
 const PORT = process.env.PORT || 4400;
 
 mongoose
-  .connect(config.database, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-  })
+  .connect(
+    config.database ||
+      "mongodb+srv://zuri:zuri@cluster0.wrxuq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useFindAndModify: false,
+    }
+  )
   .then(() =>
     app.listen(PORT, () =>
       console.log(`server running on port: ${PORT} and database is connected`)
