@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use("/data", dataRoutes);
 
-const PORT = process.env.PORT || 4400;
+const PORT = 4400;
 
 mongoose
   .connect(
