@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const dataRoutes = require("./routes/api/data");
+const config = require("./config/database");
 require("dotenv").config();
 
 const app = express();
@@ -11,7 +12,7 @@ app.use("/data", dataRoutes);
 const PORT = process.env.PORT || 4400;
 
 mongoose
-  .connect(process.env.URI, {
+  .connect(config.database, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
