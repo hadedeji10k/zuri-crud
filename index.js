@@ -9,12 +9,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use("/data", dataRoutes);
 
-const PORT = 4400;
+const PORT = process.env.PORT || 4400;
 
 mongoose
   .connect(
     config.database ||
-      "mongodb+srv://zuri:zuri@cluster0.wrxuq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+      "mongodb+srv://zuri:zuri@1@cluster0.wrxuq.mongodb.net/zuri?retryWrites=true&w=majority",
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -26,4 +26,21 @@ mongoose
       console.log(`server running on port: ${PORT} and database is connected`)
     )
   )
-  .catch((e) => console.log(e.message));
+  .catch((e) => console.log(e.message, "here is the message"));
+
+// mongodb deprecation warnings
+// mongoose.set("useUnifiedTopology", true);
+// mongoose.set("useNewUrlParser", true);
+// mongoose.set("useFindAndModify", false);
+// // connect to db
+// mongoose.connect(config.database);
+// const db = mongoose.connection;
+// db.on("error", console.error.bind(console, "connection error:"));
+// db.once("open", function () {
+//   console.log("Connected to DB");
+// });
+
+// // start the server
+// app.listen(PORT, function () {
+//   console.log("Server is running at port 5000");
+// });
