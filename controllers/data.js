@@ -11,9 +11,17 @@ exports.getData = async (req, res) => {
 };
 
 exports.createData = async (req, res) => {
-  const data = req.body;
+  // const data  = req.body;
   // console.log(data);
-  const newData = new dataDB(data);
+  const name = req.body.name;
+  const email = req.body.email;
+  const country = req.body.country;
+
+  const newData = new dataDB({
+    name,
+    email,
+    country,
+  });
 
   try {
     await newData.save();
