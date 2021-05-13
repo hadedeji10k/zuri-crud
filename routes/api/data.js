@@ -1,4 +1,5 @@
 const express = require("express");
+const bodyParser = require("body-parser").json();
 const {
   getData,
   createData,
@@ -9,7 +10,7 @@ const {
 const router = express.Router();
 
 router.get("/", getData);
-router.post("/", createData);
+router.post("/", bodyParser, createData);
 router.patch("/:id", updateData);
 router.delete("/:id", deleteData);
 
