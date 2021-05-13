@@ -23,7 +23,7 @@ To CREATE a new data, send a POST request with your body containing json data to
 
 ---
 
-To UPDATE a data send a PATCH request with the ID of the data you want to update as parameter to https://zuri-node-crud.herokuapp.com/data/id
+To UPDATE a data send a PATCH request with the ID of the data you want to update as parameter to https://zuri-node-crud.herokuapp.com/data/id with the data as same as the create datas
 
 ---
 
