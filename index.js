@@ -4,12 +4,16 @@ const dataRoutes = require("./routes/api/data");
 const config = require("./config/database");
 require("dotenv").config();
 const bodyParser = require("body-parser");
+const path = require("path");
 
 const app = express();
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
 app.use("/data", dataRoutes);
+app.get("/", function (req, res) {
+  res.sendFile(path.join(__dirname, "/index.html"));
+});
 
 const PORT = process.env.PORT || 4400;
 
