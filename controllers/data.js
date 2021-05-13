@@ -11,8 +11,8 @@ exports.getData = async (req, res) => {
 };
 
 exports.createData = async (req, res) => {
-  // const data  = req.body;
-  // console.log(data);
+  const data = req.body;
+  console.log(data);
   const name = req.body.name;
   const email = req.body.email;
   const country = req.body.country;
