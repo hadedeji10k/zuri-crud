@@ -1,4 +1,9 @@
 const dataDB = require("../models/dataModels");
+const express = require("express");
+const bodyParser = require("body-parser");
+
+const app = express();
+app.use(bodyParser.json());
 
 exports.getData = async (req, res) => {
   try {
